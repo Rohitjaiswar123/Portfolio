@@ -2,7 +2,7 @@
 import { TextGenerateEffect } from "@/app/components/ui/text-generate-effect";
 import { useState, useEffect } from "react";
 
-const words = `Oxygen gets you high. In a catastrophic emergency, we're taking giant, panicked breaths. Suddenly you become euphoric, docile. You accept your fate. It's all right here. Emergency water landing, six hundred miles an hour. Blank faces, calm as Hindu cows`;
+const words = ` Full stack developer specializing in Java backend and React.js frontend technologies. I craft robust, scalable web applications that seamlessly integrate server-side logic with dynamic user interfaces. My expertise spans the entire development lifecycle, from conceptualization to deployment and maintenance.`;
 
 export function TextGenerateEffectDemo() {
   const [windowWidth, setWindowWidth] = useState(
@@ -25,7 +25,12 @@ export function TextGenerateEffectDemo() {
   return (
     <section className="w-full min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
       <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg ${getFontSize()}`}>
+        <div 
+          className={`p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg ${getFontSize()}`}
+        >
+          <h1 className="text-center ">
+            <b>ABOUT ME</b>
+          </h1>
           <TextGenerateEffect words={words} />
         </div>
       </div>

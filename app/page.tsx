@@ -1,18 +1,25 @@
-import { AppleCardsCarouselDemo } from "./components/AppleCardsCarouselDemo";
 import { LampDemo } from "./components/LampDemo";
-import { NavbarDemo } from "./components/NavbarDemo";
 import { SignupFormDemo } from "./components/SignupFormDemo";
 import { TextGenerateEffectDemo } from "./components/TextGenerateEffectDemo";
-
+import Navbar from './components/NavbarDemo';
+import { ProjectList } from "./components/ProjectList";
 
 export default function Home() {
   return (
     <>
-    <NavbarDemo />
-    <LampDemo />  
-    <TextGenerateEffectDemo />
-    <AppleCardsCarouselDemo />
-    <SignupFormDemo />
-    </>
-     );
+      <Navbar />
+      <div id="lamp-demo">
+        <LampDemo />
+      </div>
+      <div id="text-generate-demo">
+        <TextGenerateEffectDemo />
+      </div>
+      <div id="apple-cards-carousel">
+        <ProjectList />
+      </div>
+      <div id="signup-form">
+        <SignupFormDemo />
+      </div>
+    </>
+  );
 }
