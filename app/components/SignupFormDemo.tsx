@@ -5,10 +5,9 @@ import { Input } from "@/app/components/ui/input";
 import { cn } from "@/app/lib/utils";
 import {
   IconBrandGithub,
-  IconBrandGoogle,
   IconBrandInstagram,
-  IconBrandOnlyfans,
   IconBrandSnapchat,
+  IconBrandPinterest,
 } from "@tabler/icons-react";
 import { submitContactForm } from "../apiClient";
 
@@ -17,11 +16,13 @@ export function SignupFormDemo() {
     firstName: "",
     lastName: "",
     email: "",
-    subject: "", // Subject field
+    subject: "",
     message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
@@ -30,11 +31,7 @@ export function SignupFormDemo() {
     try {
       const response = await submitContactForm(formData);
       console.log("Form submitted successfully:", response);
-
-      // Show a popup message to the user
       alert("Your message has been sent successfully!");
-
-      // Reset the form after submission
       setFormData({
         firstName: "",
         lastName: "",
@@ -44,7 +41,6 @@ export function SignupFormDemo() {
       });
     } catch (error) {
       console.error("Error submitting form:", error);
-      // Show an error popup message to the user
       alert("There was an error sending your message. Please try again.");
     }
   };
@@ -122,56 +118,54 @@ export function SignupFormDemo() {
 
         <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
         <div className="flex flex-col space-y-4">
-          <button
+          <a
+            href="https://github.com/Rohitjaiswar123"
+            target="_blank"
+            rel="noopener noreferrer"
             className="relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-            type="submit"
           >
             <IconBrandGithub className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
             <span className="text-neutral-700 dark:text-neutral-300 text-sm">
               GitHub
             </span>
             <BottomGradient />
-          </button>
-          <button
+          </a>
+          <a
+            href="https://www.snapchat.com/add/rohit_jaisw4169?share_id=MkEaQVAIzwk&locale=en-US"
+            target="_blank"
+            rel="noopener noreferrer"
             className="relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-            type="submit"
           >
             <IconBrandSnapchat className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
             <span className="text-neutral-700 dark:text-neutral-300 text-sm">
               SnapChat
             </span>
             <BottomGradient />
-          </button>
-          <button
+          </a>
+          <a
+            href="https://www.instagram.com/row_heat_jay/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-            type="submit"
           >
             <IconBrandInstagram className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
             <span className="text-neutral-700 dark:text-neutral-300 text-sm">
               Instagram
             </span>
             <BottomGradient />
-          </button>
-          <button
+          </a>
+          <a
+            href="https://pin.it/7KKULgXcu"
+            target="_blank"
+            rel="noopener noreferrer"
             className="relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-            type="submit"
           >
-            <IconBrandGoogle className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
+            <IconBrandPinterest className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
             <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-              Google
+              Pinterest
             </span>
             <BottomGradient />
-          </button>
-          <button
-            className="relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-            type="submit"
-          >
-            <IconBrandOnlyfans className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
-            <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-              OnlyFans
-            </span>
-            <BottomGradient />
-          </button>
+          </a>
         </div>
       </form>
     </div>
@@ -187,8 +181,13 @@ const BottomGradient = () => {
   );
 };
 
-
-function LabelInputContainer({ children, className }: { children: React.ReactNode; className?: string }) {
+function LabelInputContainer({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <div className={cn("flex flex-col space-y-2 w-full", className)}>
       {children}

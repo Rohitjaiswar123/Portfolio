@@ -2,7 +2,7 @@ import { LampDemo } from "./components/LampDemo";
 import { SignupFormDemo } from "./components/SignupFormDemo";
 import { TextGenerateEffectDemo } from "./components/TextGenerateEffectDemo";
 import Navbar from './components/NavbarDemo';
-import { ProjectList } from "./components/ProjectList";
+import { AppleCardsCarouselDemo } from "@/app/components/AppleCardsCarouselDemo";
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
         <TextGenerateEffectDemo />
       </div>
       <div id="apple-cards-carousel">
-        <ProjectList />
+        <AppleCardsCarouselDemo />
       </div>
       <div id="signup-form">
         <SignupFormDemo />
