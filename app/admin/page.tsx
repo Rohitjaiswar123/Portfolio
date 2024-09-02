@@ -24,7 +24,7 @@ const AdminPanel = () => {
 
   // Fetch projects from the backend on client side
   useEffect(() => {
-    fetch('http://localhost:8080/api/projects')
+    fetch('https://portfolio-backend-java.onrender.com/api/projects')
       .then((response) => response.json())
       .then((data) => {
         setProjects(data);
@@ -46,7 +46,7 @@ const AdminPanel = () => {
   const handleSubmit = () => {
     if (editingProjectId !== null) {
       // Update project
-      fetch(`http://localhost:8080/api/projects/${editingProjectId}`, {
+      fetch(`https://portfolio-backend-java.onrender.com/api/projects/${editingProjectId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ const AdminPanel = () => {
         .catch((error) => console.error('Error updating project:', error));
     } else {
       // Add project
-      fetch('http://localhost:8080/api/projects', {
+      fetch('https://portfolio-backend-java.onrender.com/api/projects', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ const AdminPanel = () => {
   };
 
   const handleDeleteProject = (id: number) => {
-    fetch(`http://localhost:8080/api/projects/${id}`, {
+    fetch(`https://portfolio-backend-java.onrender.com/api/projects/${id}`, {
       method: 'DELETE',
     })
       .then(() => {

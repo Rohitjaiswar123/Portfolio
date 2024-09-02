@@ -16,7 +16,7 @@ export function AppleCardsCarouselDemo() {
   const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/projects')
+    fetch('https://portfolio-backend-java.onrender.com/api/projects')
       .then(response => response.json())
       .then(data => setProjects(data))
       .catch(error => console.error('Error fetching projects:', error));
