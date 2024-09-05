@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { Carousel, Card } from "@/app/components/ui/Apple-cards-carousel";
