@@ -1,5 +1,3 @@
-"use client"
-
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { Carousel, Card } from "@/app/components/ui/Apple-cards-carousel";
@@ -14,13 +12,27 @@ interface Project {
 
 export function AppleCardsCarouselDemo() {
   const [projects, setProjects] = useState<Project[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch('https://portfolio-backend-java.onrender.com/api/projects')
-      .then(response => response.json())
-      .then(data => setProjects(data))
-      .catch(error => console.error('Error fetching projects:', error));
+    fetchProjects();
   }, []);
+
+  const fetchProjects = async () => {
+    try {
+      setIsLoading(true);
+      const response = await fetch('https://portfolio-backend-java.onrender.com/api/projects');
+      if (!response.ok) {
+        throw new Error('Failed to fetch projects');
+      }
+      const data = await response.json();
+      setProjects(data);
+    } catch (error) {
+      console.error('Error fetching projects:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const cards = projects.map((project, index) => (
     <Card 
@@ -40,7 +52,13 @@ export function AppleCardsCarouselDemo() {
       <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
         My Projects
       </h2>
-      <Carousel items={cards} />
+      {isLoading ? (
+        <div className="flex justify-center items-center h-80">
+          <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
+        </div>
+      ) : (
+        <Carousel items={cards} />
+      )}
     </div>
   );
 }
